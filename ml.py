@@ -1,5 +1,5 @@
 import sys
-
+import main
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
@@ -9,39 +9,6 @@ from sklearn import preprocessing
 import numpy as np
 
 df = pd.read_csv("HR_comma_sep (2).csv")
-class main():
-    def __init__(self,satisfaction,evaluation,project,hours,timespend,accident,promotion,depart,salary):
-        self.satisfaction = satisfaction
-        self.evaluation = evaluation
-        self.project = project
-        self.hours = hours
-        self.timespend = timespend
-        self.accident = accident
-        self.promotion = promotion
-        self.depart = depart
-        self.salary = salary
-
-def check_promo():
-    if prom > 1 or prom < 0:
-        print("value salah")
-        sys.exit()
-    else:
-        pass
-
-
-def check_dep():
-    if dep > 9 or dep < 0:
-        print("Value salah ulangi")
-        sys.exit()
-    else:
-         pass
-
-def check_sal():
-    if sal > 2 or sal < 0:
-        print("Value salah ulangi")
-        sys.exit()
-    else:
-         pass
 
 
 lb = LabelEncoder()
@@ -78,15 +45,15 @@ acc = input()
 print("does worker get promotion?0 for false and 1 for true")
 prom = int(input())
 
-check_promo()
+main.check_promo()
 print("Where worker work?")
 print("0 for IT,1 for R&D,2 for Accounting,3 for HR,4 for Management,5 for Marketing,6 for Product Management,7 for Sales,8 for Support,9 for Technical")
 dep = int(input())
-check_dep()
+main.check_dep()
 print("How about salary?")
 print("0 for Hight,1 for Low and 2 for Medium")
 sal = int(input())
-check_sal()
+main.check_sal()
 reesult = lr.predict([[sat,eval,proj,hour,year,acc,prom,dep,sal]])
 print(reesult)
 
